@@ -3,7 +3,7 @@ rm(list=ls())
 ####DIGITAL OCEAN MANAGER
 library(httr)
 
-do.tkn <- "11cf3f9bf398a2cc4535af43416abf7cf0e08395f8ad02da7a3973e48f3dd37c"
+do.tkn <- "blah"
 docker.slug <- "docker-16-04"
 mysql.slug <- 
   
