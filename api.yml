@@ -7,12 +7,12 @@ runcmd:
   - git clone https://github.com/s3tools/s3cmd.git
   - cd s3cmd && python3 setup.py install
   - cd / && git clone https://github.com/svarn-ivise/api.git
-  - ACCESS_KEY=",spaces.key," \
-    SECRET_KEY=",spaces.secret," \
+  - ACCESS_KEY=spaces.key \
+    SECRET_KEY=spaces.secret \
     LOCATION=",spaces.loc," \
     bash -c '/usr/bin/envsubst < \"/api/template.s3cfg\" > \"/root/.s3cfg\";'
   - cd api
   - s3cmd get s3://modelstorage/rf.rds /models
-  - sudo sed -i \"s/0.0.0.0/'",sql.db.ip,"'/\" ./api.R
+  - sudo sed -i \"s/0.0.0.0/'sql.db.ip'/\" ./api.R
   - docker-compose up
   - sudo docker-compose scale app1=4
