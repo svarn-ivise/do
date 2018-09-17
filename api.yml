@@ -9,7 +9,7 @@ runcmd:
   - cd / && git clone https://github.com/svarn-ivise/api.git
   - ACCESS_KEY=spaces.key \
     SECRET_KEY=spaces.secret \
-    LOCATION=",spaces.loc," \
+    LOCATION=spaces.loc \
     bash -c '/usr/bin/envsubst < \"/api/template.s3cfg\" > \"/root/.s3cfg\";'
   - cd api
   - s3cmd get s3://modelstorage/rf.rds /models
