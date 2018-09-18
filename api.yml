@@ -14,5 +14,6 @@ runcmd:
   - cd api
   - s3cmd get s3://modelstorage/rf.rds /models
   - sudo sed -i \"s/0.0.0.0/'db.ip'/\" ./api.R
+  - sudo apt-get install docker-compose -y
   - docker-compose up
   - sudo docker-compose scale app1=4
