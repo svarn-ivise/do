@@ -11,9 +11,9 @@ runcmd:
     SECRET_KEY=spaces.secret \
     LOCATION=spaces.loc \
     bash -c "/usr/bin/envsubst < '/api/template.s3cfg' > '/root/.s3cfg';"
-  - cd api
   - s3cmd get s3://modelstorage/rf.rds /models
   - sudo sed -i \"s/0.0.0.0/'db.ip'/\" ./api.R
   - sudo apt-get install docker-compose -y
+  - cd api
   - docker-compose up
   - sudo docker-compose scale app1=4
