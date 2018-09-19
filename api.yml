@@ -12,7 +12,7 @@ runcmd:
     SECRET_KEY=spaces.secret \
     LOCATION=spaces.loc \
     bash -c '/usr/bin/envsubst < /api/template.s3cfg > /root/.s3cfg'"
-  - sudo mkdir /models/'
+  - sudo mkdir /models/
   - s3cmd get s3://modelstorage/rf.rds /models/rf.rds
   - sudo sed -i "s/0.0.0.0/'db.ip'/" /api/api.R
   - cd /api
