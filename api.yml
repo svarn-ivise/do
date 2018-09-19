@@ -10,7 +10,7 @@ runcmd:
   - ACCESS_KEY=spaces.key \
     SECRET_KEY=spaces.secret \
     LOCATION=spaces.loc \
-    envsubst < /api/template.s3cfg > /root/.s3cfg
+    bash -c '/usr/bin/envsubst < "/api/template.s3cfg" > "/root/.s3cfg";'
   #- sudo echo /api/template.s3cfg |
   #  sed "s/${ACCESS_KEY}/spaces.key/" |
   #  sed "s/${SECRET_KEY}/spaces.secret/" | 
