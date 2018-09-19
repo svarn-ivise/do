@@ -7,10 +7,14 @@ runcmd:
   - git clone https://github.com/s3tools/s3cmd.git
   - cd s3cmd && python3 setup.py install
   - cd / && git clone https://github.com/svarn-ivise/api.git
-  - ACCESS_KEY=spaces.key \
-    SECRET_KEY=spaces.secret \
-    LOCATION=spaces.loc \
-    bash -c '/usr/bin/envsubst < /api/template.s3cfg > /root/.s3cfg;'
+#  - ACCESS_KEY=spaces.key \
+#    SECRET_KEY=spaces.secret \
+#    LOCATION=spaces.loc \
+#    bash -c '/usr/bin/envsubst < /api/template.s3cfg > ;'
+  - sudo echo /api/template.s3cfg |
+    sed "s/${ACCESS_KEY}/spaces.key/" |
+    sed "s/${SECRET_KEY}/spaces.secret/" | 
+    sed "s/${LOCATION}/spaces.secret/" > /root/.s3cfg
   - s3cmd get s3://modelstorage/rf.rds /models/rf.rds
   - sudo sed -i "s/0.0.0.0/'db.ip'/" api/api.R
   - sudo apt-get install docker-compose -y
