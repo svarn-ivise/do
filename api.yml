@@ -17,7 +17,7 @@ runcmd:
   #  sed "s/${LOCATION}/spaces.secret/" > /root/.s3cfg
   - s3cmd get s3://modelstorage/rf.rds /models/rf.rds
   - sudo sed -i "s/0.0.0.0/'db.ip'/" api/api.R
-  - sudo apt-get install docker-compose -y
+  - apt-get install -y docker-compose
   - cd api
   - docker-compose up
   - sudo docker-compose scale app1=4
