@@ -12,7 +12,7 @@ runcmd:
     LOCATION=spaces.loc \
     bash -c "/usr/bin/envsubst < '/api/template.s3cfg' > '/root/.s3cfg';"
   - s3cmd get s3://modelstorage/rf.rds /models/rf.rds
-  - sudo sed -i "s/0.0.0.0/'db.ip'/" ./api.R
+  - sudo sed -i "s/0.0.0.0/'db.ip'/" api/api.R
   - sudo apt-get install docker-compose -y
   - cd api
   - docker-compose up
