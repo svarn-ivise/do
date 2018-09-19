@@ -2,6 +2,7 @@
 runcmd:
   - apt-get update
   - apt-get install -y mysql-client
+  - apt-get install -y docker-compose
   - apt-get install -y git
   - apt-get install -y python3-setuptools
   - git clone https://github.com/s3tools/s3cmd.git
@@ -17,7 +18,6 @@ runcmd:
   #  sed "s/${LOCATION}/spaces.secret/" > /root/.s3cfg
   - s3cmd get s3://modelstorage/rf.rds /models/rf.rds
   - sudo sed -i "s/0.0.0.0/'db.ip'/" /api/api.R
-  - apt-get install -y docker-compose
   - cd /api
   - docker-compose up
   - sudo docker-compose scale app1=4
