@@ -12,10 +12,10 @@ runcmd:
     LOCATION=spaces.loc \
     bash -c '/usr/bin/envsubst < /api/template.s3cfg > /root/.s3cfg'"
   - sudo mkdir /models/
-  - s3cmd get s3://modelstorage/rf.rds /models/rf.rds
+  - sudo s3cmd get s3://modelstorage/rf.rds /models/rf.rds
   - sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   - sudo chmod +x /usr/local/bin/docker-compose
-  - mkdir -p /storage/docker/mysql-datadir
-  - cd /api
-  - docker-compose up
-  - sudo docker-compose scale app1=4
+  - sudo mkdir -p /storage/docker/mysql-datadir
+  - sudo cd /api
+  - sudo docker-compose up
+  - sudo docker-compose scale api=4
