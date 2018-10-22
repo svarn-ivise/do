@@ -7,6 +7,7 @@ runcmd:
   - apt-get install -y python3-setuptools
   - git clone https://github.com/s3tools/s3cmd.git
   - cd s3cmd && python3 setup.py install
+  - apt-get update
   - cd / && git clone https://github.com/svarn-ivise/api.git
   - "ACCESS_KEY=spaces.key \
     SECRET_KEY=spaces.secret \
