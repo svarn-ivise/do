@@ -19,6 +19,4 @@ runcmd:
   - sudo chmod +x /usr/local/bin/docker-compose
   - sudo mkdir -p /storage/docker/mysql-datadir
   - sudo cd /api
-  - sudo docker-compose build
-  - sudo docker-compose up
-  - sudo docker-compose scale api=4
+  - sudo docker-compose up --scale api=4
